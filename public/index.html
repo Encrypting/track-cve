@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVE Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 800px;
+            margin-top: 30px;
+        }
+        .cve-card {
+            margin-bottom: 20px;
+            border-left: 5px solid #007bff;
+        }
+        .severity-high {
+            border-left-color: #dc3545;
+        }
+        .severity-medium {
+            border-left-color: #ffc107;
+        }
+        .severity-low {
+            border-left-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">CVE Tracker</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col">
+                <h2>Add New CVE</h2>
+                <form id="cveForm">
+                    <div class="mb-3">
+                        <label for="cveId" class="form-label">CVE ID</label>
+                        <input type="text" class="form-control" id="cveId" placeholder="e.g. CVE-2023-1234" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="severity" class="form-label">Severity</label>
+                        <select class="form-select" id="severity" required>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" required>
+                            <option value="new">New</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="mitigated">Mitigated</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add CVE</button>
+                </form>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col">
+                <h2>CVE Entries</h2>
+                <div id="cveList">
+                    <!-- CVE entries will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
